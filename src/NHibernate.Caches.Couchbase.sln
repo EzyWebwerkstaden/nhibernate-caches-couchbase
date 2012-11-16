@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateCouchbaseCacheSample", "NHibernateCouchbaseCacheSample\NHibernateCouchbaseCacheSample.csproj", "{FCD65F88-AE7F-442E-9235-1B2BCDB82EB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate.Caches.Couchbase", "NHibernate.Caches.Couchbase\NHibernate.Caches.Couchbase.csproj", "{EE66FEE1-5775-4B40-BBFE-319F3FB412D0}"

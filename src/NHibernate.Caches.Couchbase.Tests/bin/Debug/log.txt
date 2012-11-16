@@ -1,0 +1,44 @@
+2012-11-16 13:32:51,141 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: nunit, properties: name=compression_enabled&value=false;name=expiration&value=20;
+2012-11-16 13:32:51,208 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - using expiration of 20 seconds
+2012-11-16 13:32:51,214 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:51,229 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - setting value for item key1
+2012-11-16 13:32:52,373 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key1 from the cache
+2012-11-16 13:32:52,397 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key1 from the cache
+2012-11-16 13:32:52,492 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:52,508 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - setting value for item nunit
+2012-11-16 13:32:53,545 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: nunit, properties: name=compression_enabled&value=false;name=expiration&value=20;
+2012-11-16 13:32:53,545 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - using expiration of 20 seconds
+2012-11-16 13:32:53,545 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:53,545 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key1 from the cache
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: nunit1, properties: name=compression_enabled&value=false;name=expiration&value=20;
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - using expiration of 20 seconds
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: nunit2, properties: name=compression_enabled&value=false;name=expiration&value=20;
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - using expiration of 20 seconds
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - setting value for item key
+2012-11-16 13:32:53,550 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - setting value for item key
+2012-11-16 13:32:54,551 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key from the cache
+2012-11-16 13:32:54,551 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key from the cache
+2012-11-16 13:32:54,555 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: nunit, properties: name=compression_enabled&value=false;name=expiration&value=20;
+2012-11-16 13:32:54,555 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - using expiration of 20 seconds
+2012-11-16 13:32:54,555 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:54,555 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - setting value for item key1
+2012-11-16 13:32:55,556 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key1 from the cache
+2012-11-16 13:32:55,556 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - removing item key1
+2012-11-16 13:32:55,562 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key1 from the cache
+2012-11-16 13:32:55,568 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: nunit, properties: name=compression_enabled&value=false;name=expiration&value=20000;name=lingering_delete_disabled&value=true;
+2012-11-16 13:32:55,568 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - using expiration of 20000 seconds
+2012-11-16 13:32:55,568 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:55,568 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - setting value for item key1
+2012-11-16 13:32:56,569 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key1 from the cache
+2012-11-16 13:32:56,569 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - removing item key1
+2012-11-16 13:32:56,569 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - fetching object key1 from the cache
+2012-11-16 13:32:56,621 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: foo, properties: 
+2012-11-16 13:32:56,621 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:56,624 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: , properties: 
+2012-11-16 13:32:56,624 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:56,626 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: another_region, properties: 
+2012-11-16 13:32:56,626 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults
+2012-11-16 13:32:56,627 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheProvider [(null)] <(null)> - building cache with region: a_region, properties: 
+2012-11-16 13:32:56,627 [CurrentAppDomainHost.ExecuteNodes] DEBUG NHibernate.Caches.Couchbase.CouchbaseCacheClient [(null)] <(null)> - no regionPrefix value given, using defaults

@@ -1,0 +1,1 @@
+C:\projekt\nhibernate-caches-couchbase\src\NHibernateCouchbaseCacheSample\obj\Debug\NHibernateCouchbaseCacheSample.csprojResolveAssemblyReference.cache
