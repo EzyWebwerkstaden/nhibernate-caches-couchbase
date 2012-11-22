@@ -15,3 +15,4 @@ C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\bin\Debug
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\bin\Debug\NHibernate.xml
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\obj\Debug\NHibernate.Caches.Couchbase.dll
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\obj\Debug\NHibernate.Caches.Couchbase.pdb
+C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\obj\Debug\NHibernate.Caches.Couchbase.csprojResolveAssemblyReference.cache
