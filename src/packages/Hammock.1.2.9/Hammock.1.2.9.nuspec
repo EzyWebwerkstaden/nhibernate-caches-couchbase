@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Hammock</id>
     <version>1.2.9</version>
@@ -12,5 +12,18 @@
     <description>Hammock is an HTTP API library for .NET that greatly simplifies consuming and wrapping RESTful services.</description>
     <summary>REST, easy.</summary>
     <tags>web api client http rest services wrapper json xml</tags>
+    <references>
+      <reference file="Hammock.dll" />
+      <reference file="LinqBridge.dll" />
+      <reference file="Hammock.ClientProfile.dll" />
+      <reference file="Hammock.Silverlight.dll" />
+      <reference file="ICSharpCode.SharpZipLib.Silverlight.dll" />
+      <reference file="System.Runtime.Serialization.Json.dll" />
+      <reference file="System.Xml.Linq.dll" />
+      <reference file="Microsoft.CSharp.dll" />
+      <reference file="System.Json.dll" />
+      <reference file="Hammock.WindowsPhone.dll" />
+      <reference file="ICSharpCode.SharpZipLib.WindowsPhone.dll" />
+    </references>
   </metadata>
 </package>
