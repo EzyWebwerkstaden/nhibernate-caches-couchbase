@@ -4,122 +4,6 @@
         <name>Couchbase</name>
     </assembly>
     <members>
-        <member name="P:Couchbase.Configuration.IHttpClientConfiguration.InitializeConnection">
-            <summary>
-            When true, instructs the client to pre-fetch a given URI
-            to initialize the ServicePoint for future requests
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.IHttpClientConfiguration.Timeout">
-            <summary>
-            Timeout applied to HTTP requests
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.HttpClientElement.InitializeConnection">
-            <summary>
-            When true, instructs the client to pre-fetch a given URI
-            to initialize the ServicePoint for future requests
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.HttpClientElement.Timeout">
-            <summary>
-            Gets or sets the timeout for http client connections
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.Limit(System.Int32)" -->
-        <member name="M:Couchbase.ISpatialView`1.Skip(System.Int32)">
-            <summary>
-            Bypasses the specified number of elements in the view then returns the remaining items.
-            </summary>
-            <param name="value">The number of elements to skip before returning the remaining items.</param>
-            <returns></returns>
-            <returns>A <see cref="T:Couchbase.ISpatialView"/> that contains the items that occur after the specified index in the view.</returns>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.Stale(Couchbase.StaleMode)" -->
-        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.BoundingBox(System.Single,System.Single,System.Single,System.Single)" -->
-        <member name="M:Couchbase.CouchbaseViewHandler.CreateRequest(Couchbase.IHttpClient,System.Collections.Generic.Dictionary{System.String,System.String})">
-            <summary>
-            Builds the request uri based on the parameters set by the user
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Couchbase.Exceptions.ViewException">
-            <summary>
-            Standard exception class thrown on when view errors are encountered
-            </summary>
-        </member>
-        <member name="T:Couchbase.Exceptions.ViewNotFoundException">
-            <summary>
-            Exception thrown when non-existent view is queried
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpClient">
-            <summary>
-            Defines an http client used by the <see cref="T:CouchbaseNode"/> to retrieve data from the views.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpRequest">
-            <summary>
-            Represents an http request sent to the Couchbase servers.
-            </summary>
-        </member>
-        <member name="M:Couchbase.IHttpRequest.AddParameter(System.String,System.String)">
-            <summary>
-            Adds a parameter to the request. Parameters will be appended to the query string or to the POST body, depending on the type of the request.
-            </summary>
-            <param name="name"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Couchbase.IHttpRequest.GetResponse">
-            <summary>
-            Executes the request and returns the response sent by the server.
-            </summary>
-            <returns>The response sent by the server.</returns>
-        </member>
-        <member name="P:Couchbase.IHttpRequest.Method">
-            <summary>
-            The HTTP method of the request.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpResponse">
-            <summary>
-            represents an http response sent by the Couchbase servers.
-            </summary>
-        </member>
-        <member name="T:Couchbase.DefaultHttpClient.HttpWebRequestWrapper">
-            <summary>
-            WebClientWithTimeout and its base WebClient
-            do not alow for params to be set after
-            instantiation.  This wrapper will allow for 
-            that scenario.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpClientFactory">
-            <summary>
-            defines a class which is responsible for creating <see cref="T:Couchbase.IHttpClient"/> instances.
-            </summary>
-        </member>
-        <member name="P:Couchbase.ISpatialViewRow.Id">
-            <summary>
-            Returns the id of the item referenced by this row. This id can be used to
-            perform the standard (Set/Get/Remove/etc.) operations on the item.
-            </summary>
-        </member>
-        <member name="P:Couchbase.ISpatialViewRow.BoundingBox">
-            <summary>
-            Bounding box of indexed coordinates from document
-            </summary>
-        </member>
-        <member name="P:Couchbase.ISpatialViewRow.Geometry">
-            <summary>
-            Structure containing geometry data (e.g., coordinates, type).
-            </summary>
-        </member>
-        <member name="P:Couchbase.ISpatialViewRow.Value">
-            <summary>
-            Value emitted by map function
-            </summary>
-        </member>
         <member name="M:Couchbase.BucketConfigListener.Start">
             <summary>
             Starts listening for configuration data. This method blocks until the initial configuration is received. (Or until all pool urls fail.)
@@ -181,51 +65,9 @@
             Connect to the nodes directly using the Memcached port
             </summary>
         </member>
-        <member name="T:Couchbase.Configuration.ProductionModeNameTransformer">
+        <member name="T:Couchbase.Configuration.CouchbaseClientConfiguration">
             <summary>
-            Name transformer for Couchbase's development views. Prefixes all design document names with 'dev_'.
-            </summary>
-        </member>
-        <member name="M:Couchbase.Configuration.INameTransformer.Transform(System.String)">
-            <summary>
-            Transform the name into a different value.
-            </summary>
-            <param name="name">The name to be transformed.</param>
-            <returns>The new name.</returns>
-        </member>
-        <member name="T:Couchbase.Configuration.DevelopmentModeNameTransformer">
-            <summary>
-            Name transformer for Couchbase's development views. Prefixes all design document names with 'dev_'.
-            </summary>
-        </member>
-        <member name="T:Couchbase.Configuration.IHeartbeatMonitorConfiguration">
-            <summary>
-            Defines an interface for setting Heartbeat monitor attributes
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.IHeartbeatMonitorConfiguration.Interval">
-            <summary>
-            Time between checks, in milliseconds
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.IHeartbeatMonitorConfiguration.Enabled">
-            <summary>
-            Determines whether to run the heartbeat checks
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.HeartbeatMonitorElement.Uri">
-            <summary>
-            Gets or sets the endpoint uri for the heartbeat request
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.HeartbeatMonitorElement.Interval">
-            <summary>
-            Gets or sets the interval between heartbeat requests
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.HeartbeatMonitorElement.Enabled">
-            <summary>
-            Enables or disables the heartbeat requests
+            Configuration class
             </summary>
         </member>
         <member name="M:Couchbase.Configuration.ICouchbaseClientConfiguration.CreateKeyTransformer">
@@ -301,11 +143,6 @@
         <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.HttpRequestTimeout">
             <summary>
             Timeout used for timing out HTTP requests to RESTful API calls
-            </summary>
-        </member>
-        <member name="T:Couchbase.Configuration.CouchbaseClientConfiguration">
-            <summary>
-            Configuration class
             </summary>
         </member>
         <member name="M:Couchbase.Configuration.CouchbaseClientConfiguration.#ctor">
@@ -391,6 +228,32 @@
             Gets or sets the INameTransformer instance.
             </summary>
         </member>
+        <member name="T:Couchbase.Configuration.IHeartbeatMonitorConfiguration">
+            <summary>
+            Defines an interface for setting Heartbeat monitor attributes
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.IHeartbeatMonitorConfiguration.Interval">
+            <summary>
+            Time between checks, in milliseconds
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.IHeartbeatMonitorConfiguration.Enabled">
+            <summary>
+            Determines whether to run the heartbeat checks
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.IHttpClientConfiguration.InitializeConnection">
+            <summary>
+            When true, instructs the client to pre-fetch a given URI
+            to initialize the ServicePoint for future requests
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.IHttpClientConfiguration.Timeout">
+            <summary>
+            Timeout applied to HTTP requests
+            </summary>
+        </member>
         <member name="T:Couchbase.Configuration.CouchbaseClientSection">
             <summary>
             Configures the <see cref="T:CouchbaseClient"/>. This class cannot be inherited.
@@ -439,6 +302,49 @@
         <member name="P:Couchbase.Configuration.CouchbaseClientSection.DocumentNameTransformer">
             <summary>
             Gets or sets the <see cref="T:Enyim.Caching.Memcached.IMemcachedNodeLocator"/> which will be used to assign items to Memcached nodes.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Configuration.DevelopmentModeNameTransformer">
+            <summary>
+            Name transformer for Couchbase's development views. Prefixes all design document names with 'dev_'.
+            </summary>
+        </member>
+        <member name="M:Couchbase.Configuration.INameTransformer.Transform(System.String)">
+            <summary>
+            Transform the name into a different value.
+            </summary>
+            <param name="name">The name to be transformed.</param>
+            <returns>The new name.</returns>
+        </member>
+        <member name="P:Couchbase.Configuration.HeartbeatMonitorElement.Uri">
+            <summary>
+            Gets or sets the endpoint uri for the heartbeat request
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.HeartbeatMonitorElement.Interval">
+            <summary>
+            Gets or sets the interval between heartbeat requests
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.HeartbeatMonitorElement.Enabled">
+            <summary>
+            Enables or disables the heartbeat requests
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.HttpClientElement.InitializeConnection">
+            <summary>
+            When true, instructs the client to pre-fetch a given URI
+            to initialize the ServicePoint for future requests
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.HttpClientElement.Timeout">
+            <summary>
+            Gets or sets the timeout for http client connections
+            </summary>
+        </member>
+        <member name="T:Couchbase.Configuration.ProductionModeNameTransformer">
+            <summary>
+            Name transformer for Couchbase's development views. Prefixes all design document names with 'dev_'.
             </summary>
         </member>
         <member name="T:Couchbase.Configuration.ServersElement">
@@ -510,6 +416,114 @@
             Helper method; converts the collection into an <see cref="T:IPEndPoint"/> collection for the interface implementation.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Couchbase.CouchbaseClient">
+            <summary>D:\dev\couchbase-net-client\src\Couchbase\CouchbaseViewBase.cs
+            Client which can be used to connect to Couchbase servers.
+            </summary>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the default configuration and bucket.
+            </summary>
+            <remarks>The configuration is taken from the /configuration/Couchbase section.</remarks>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the default configuration and the specified bucket.
+            </summary>
+            <remarks>The configuration is taken from the /configuration/Couchbase section.</remarks>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using a custom configuration provider.
+            </summary>
+            <param name="configuration">The custom configuration provider.</param>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration 
+            section and the specified bucket.
+            </summary>
+            <param name="sectionName">The name of the configuration section to load.</param>
+            <param name="bucketName">The name of the bucket this client will connect to.</param>
+            <param name="bucketPassword">The password of the bucket this client will connect to.</param>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class 
+            using a custom configuration provider and the specified bucket name and password.
+            </summary>
+            <param name="configuration">The custom configuration provider.</param>
+            <param name="bucketName">The name of the bucket this client will connect to.</param>
+            <param name="bucketPassword">The password of the bucket this client will connect to.</param>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration 
+            section.
+            </summary>
+            <param name="sectionName">The name of the configuration section to load.</param>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetView(System.String,System.String)">
+            <summary>
+            Returns an object representing the specified view in the specified design document.
+            </summary>
+            <param name="designName">The name of the design document.</param>
+            <param name="viewName">The name of the view.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetView``1(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns an object representing the specified view in the specified design document.
+            </summary>
+            <param name="designName">The name of the design document.</param>
+            <param name="viewName">The name of the view.</param>
+            <param name="shouldLookupDocById">
+            	When true, the client will return an instance of T by deserializing the document that
+            	is retrieved using the row's id.  When false (use when emitting projections), the client 
+            	simply attempts to deserialize the view's value into an instance of T by matching properties.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Couchbase.CouchbasePool">
+            <summary>
+            Socket pool using the Couchbase server's dynamic node list
+            </summary>
+        </member>
+        <member name="M:Couchbase.CouchbasePool.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbasePool" />.
+            </summary>
+            <param name="configuration">The configuration to be used.</param>
+        </member>
+        <member name="M:Couchbase.CouchbasePool.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String)">
+            <summary>Obsolete. Use .ctor(config, bucket, password) to explicitly set the bucket password.</summary>
+        </member>
+        <member name="M:Couchbase.CouchbasePool.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbasePool" /> class using the specified configuration,
+            bucket name and password.
+            </summary>
+            <param name="configuration">The configuration to be used.</param>
+            <param name="bucketName">The name of the bucket to connect to. Overrides the configuration's Bucket property.</param>
+            <param name="bucketPassword">The password to the bucket. Overrides the configuration's BucketPassword property.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.Limit(System.Int32)" -->
+        <member name="M:Couchbase.ISpatialView`1.Skip(System.Int32)">
+            <summary>
+            Bypasses the specified number of elements in the view then returns the remaining items.
+            </summary>
+            <param name="value">The number of elements to skip before returning the remaining items.</param>
+            <returns></returns>
+            <returns>A <see cref="T:Couchbase.ISpatialView"/> that contains the items that occur after the specified index in the view.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.Stale(Couchbase.StaleMode)" -->
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.BoundingBox(System.Single,System.Single,System.Single,System.Single)" -->
+        <member name="T:Couchbase.CouchbaseView">
+            <summary>
+            Represents the results of a Couchbase index.
+            </summary>
         </member>
         <member name="M:Couchbase.IView`1.Limit(System.Int32)">
             <summary>
@@ -648,11 +662,6 @@
             Debug info when Debug param is true
             </summary>
         </member>
-        <member name="T:Couchbase.CouchbaseView">
-            <summary>
-            Represents the results of a Couchbase index.
-            </summary>
-        </member>
         <member name="M:Couchbase.IViewRow.GetItem">
             <summary>
             Returns the original item.
@@ -673,6 +682,68 @@
         <member name="P:Couchbase.IViewRow.Info">
             <summary>
             Returns all data from the row. These are usually parts of the original document emitted by the mapper (or the reducer).
+            </summary>
+        </member>
+        <member name="M:Couchbase.CouchbaseViewHandler.CreateRequest(Couchbase.IHttpClient,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Builds the request uri based on the parameters set by the user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Couchbase.IHttpClient">
+            <summary>
+            Defines an http client used by the <see cref="T:CouchbaseNode"/> to retrieve data from the views.
+            </summary>
+        </member>
+        <member name="T:Couchbase.IHttpRequest">
+            <summary>
+            Represents an http request sent to the Couchbase servers.
+            </summary>
+        </member>
+        <member name="M:Couchbase.IHttpRequest.AddParameter(System.String,System.String)">
+            <summary>
+            Adds a parameter to the request. Parameters will be appended to the query string or to the POST body, depending on the type of the request.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Couchbase.IHttpRequest.GetResponse">
+            <summary>
+            Executes the request and returns the response sent by the server.
+            </summary>
+            <returns>The response sent by the server.</returns>
+        </member>
+        <member name="P:Couchbase.IHttpRequest.Method">
+            <summary>
+            The HTTP method of the request.
+            </summary>
+        </member>
+        <member name="T:Couchbase.IHttpResponse">
+            <summary>
+            represents an http response sent by the Couchbase servers.
+            </summary>
+        </member>
+        <member name="T:Couchbase.DefaultHttpClient.HttpWebRequestWrapper">
+            <summary>
+            WebClientWithTimeout and its base WebClient
+            do not alow for params to be set after
+            instantiation.  This wrapper will allow for 
+            that scenario.
+            </summary>
+        </member>
+        <member name="T:Couchbase.IHttpClientFactory">
+            <summary>
+            defines a class which is responsible for creating <see cref="T:Couchbase.IHttpClient"/> instances.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Exceptions.ViewException">
+            <summary>
+            Standard exception class thrown on when view errors are encountered
+            </summary>
+        </member>
+        <member name="T:Couchbase.Exceptions.ViewNotFoundException">
+            <summary>
+            Exception thrown when non-existent view is queried
             </summary>
         </member>
         <member name="M:Couchbase.IView.Limit(System.Int32)">
@@ -766,6 +837,27 @@
             <param name="pageSize"></param>
             <returns></returns>
         </member>
+        <member name="P:Couchbase.ISpatialViewRow.Id">
+            <summary>
+            Returns the id of the item referenced by this row. This id can be used to
+            perform the standard (Set/Get/Remove/etc.) operations on the item.
+            </summary>
+        </member>
+        <member name="P:Couchbase.ISpatialViewRow.BoundingBox">
+            <summary>
+            Bounding box of indexed coordinates from document
+            </summary>
+        </member>
+        <member name="P:Couchbase.ISpatialViewRow.Geometry">
+            <summary>
+            Structure containing geometry data (e.g., coordinates, type).
+            </summary>
+        </member>
+        <member name="P:Couchbase.ISpatialViewRow.Value">
+            <summary>
+            Value emitted by map function
+            </summary>
+        </member>
         <member name="M:Couchbase.Management.ICouchbaseCluster.ListBuckets">
             <summary>
             List the buckets from the cluster
@@ -856,7 +948,6 @@
             <param name="bucket">The name of the bucket</param>
             <param name="name">The name of the design document, less the _design</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:Couchbase.ObserveHandler.HandleMasterOnlyInCache(Couchbase.ICouchbaseServerPool)" -->
         <member name="T:Couchbase.MessageStreamListener">
             <summary>
             Listens on a streamingUri and processes the messages
@@ -907,98 +998,7 @@
             The time in milliseconds the listener should wait when retrying after the whole server list goes down.
             </summary>
         </member>
-        <member name="T:Couchbase.CouchbaseClient">
-            <summary>D:\dev\couchbase-net-client\src\Couchbase\CouchbaseViewBase.cs
-            Client which can be used to connect to Couchbase servers.
-            </summary>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the default configuration and bucket.
-            </summary>
-            <remarks>The configuration is taken from the /configuration/Couchbase section.</remarks>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the default configuration and the specified bucket.
-            </summary>
-            <remarks>The configuration is taken from the /configuration/Couchbase section.</remarks>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using a custom configuration provider.
-            </summary>
-            <param name="configuration">The custom configuration provider.</param>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.#ctor(System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration 
-            section and the specified bucket.
-            </summary>
-            <param name="sectionName">The name of the configuration section to load.</param>
-            <param name="bucketName">The name of the bucket this client will connect to.</param>
-            <param name="bucketPassword">The password of the bucket this client will connect to.</param>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class 
-            using a custom configuration provider and the specified bucket name and password.
-            </summary>
-            <param name="configuration">The custom configuration provider.</param>
-            <param name="bucketName">The name of the bucket this client will connect to.</param>
-            <param name="bucketPassword">The password of the bucket this client will connect to.</param>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration 
-            section.
-            </summary>
-            <param name="sectionName">The name of the configuration section to load.</param>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.GetView(System.String,System.String)">
-            <summary>
-            Returns an object representing the specified view in the specified design document.
-            </summary>
-            <param name="designName">The name of the design document.</param>
-            <param name="viewName">The name of the view.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.GetView``1(System.String,System.String,System.Boolean)">
-            <summary>
-            Returns an object representing the specified view in the specified design document.
-            </summary>
-            <param name="designName">The name of the design document.</param>
-            <param name="viewName">The name of the view.</param>
-            <param name="shouldLookupDocById">
-            	When true, the client will return an instance of T by deserializing the document that
-            	is retrieved using the row's id.  When false (use when emitting projections), the client 
-            	simply attempts to deserialize the view's value into an instance of T by matching properties.
-            </param>
-            <returns></returns>
-        </member>
-        <member name="T:Couchbase.CouchbasePool">
-            <summary>
-            Socket pool using the Couchbase server's dynamic node list
-            </summary>
-        </member>
-        <member name="M:Couchbase.CouchbasePool.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbasePool" />.
-            </summary>
-            <param name="configuration">The configuration to be used.</param>
-        </member>
-        <member name="M:Couchbase.CouchbasePool.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String)">
-            <summary>Obsolete. Use .ctor(config, bucket, password) to explicitly set the bucket password.</summary>
-        </member>
-        <member name="M:Couchbase.CouchbasePool.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbasePool" /> class using the specified configuration,
-            bucket name and password.
-            </summary>
-            <param name="configuration">The configuration to be used.</param>
-            <param name="bucketName">The name of the bucket to connect to. Overrides the configuration's Bucket property.</param>
-            <param name="bucketPassword">The password to the bucket. Overrides the configuration's BucketPassword property.</param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ObserveHandler.HandleMasterOnlyInCache(Couchbase.ICouchbaseServerPool)" -->
         <member name="T:Couchbase.Protocol.CouchbaseOpCode">
             <summary>
             These enumerations are for op codes that are specific to Couchbase Server
