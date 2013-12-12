@@ -4,148 +4,6 @@
         <name>Enyim.Caching</name>
     </assembly>
     <members>
-        <member name="T:Enyim.Caching.Configuration.FactoryElement`1">
-            <summary>
-            This element is used to define locator/transcoder/keyTransformer instances. It also provides custom initializations for them using a factory.
-            </summary>
-            <typeparam name="TFactory"></typeparam>
-        </member>
-        <member name="M:Enyim.Caching.Configuration.FactoryElement`1.CreateInstance">
-            <summary>
-            Creates the provider by using the factory (if present) or directly instantiating by type name
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Enyim.Caching.Configuration.FactoryElement`1.Factory">
-            <summary>
-            Gets or sets the type of the factory.
-            </summary>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.FailImmediatelyPolicy">
-            <summary>
-            Fails a node immediately when an error occures. This is the default policy.
-            </summary>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.FailImmediatelyPolicyFactory">
-            <summary>
-            Creates instances of <see cref="T:FailImmediatelyPolicy"/>.
-            </summary>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.ThrottlingFailurePolicy">
-            <summary>
-            Fails a node when the specified number of failures happen in a specified time window.
-            </summary>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.ThrottlingFailurePolicy.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Creates a new instance of <see cref="T:ThrottlingFailurePolicy"/>.
-            </summary>
-            <param name="resetAfter">Specifies the time in milliseconds how long a node should function properly to reset its failure counter.</param>
-            <param name="failureThreshold">Specifies the number of failures that must occur in the specified time window to fail a node.</param>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.ThrottlingFailurePolicyFactory">
-            <summary>
-            Creates instances of <see cref="T:ThrottlingFailurePolicy"/>.
-            </summary>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.IProviderFactory`1">
-            <summary>
-            Provides a way for custom initalization of the providers (locators, transcoders, key transformers)
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Enyim.Caching.Memcached.ThrottlingFailurePolicyFactory.ResetAfter">
-            <summary>
-            Gets or sets the amount of time of in milliseconds after the failure counter is reset.
-            </summary>
-        </member>
-        <member name="P:Enyim.Caching.Memcached.ThrottlingFailurePolicyFactory.FailureThreshold">
-            <summary>
-            Gets or sets the number of failures that must happen in a time window to make a node marked as failed.
-            </summary>
-        </member>
-        <member name="T:Enyim.Collections.InterlockedStack`1">
-            <summary>
-            Implements a non-locking stack.
-            </summary>
-            <typeparam name="TItem"></typeparam>
-        </member>
-        <member name="T:Enyim.Reflection.FastActivator">
-            <summary>
-            <para>Implements a very fast object factory for dynamic object creation. Dynamically generates a factory class which will use the new() constructor of the requested type.</para>
-            <para>Much faster than using Activator at the price of the first invocation being significantly slower than subsequent calls.</para>
-            </summary>
-        </member>
-        <member name="M:Enyim.Reflection.FastActivator.Create``1">
-            <summary>
-            Creates an instance of the specified type using a generated factory to avoid using Reflection.
-            </summary>
-            <typeparam name="T">The type to be created.</typeparam>
-            <returns>The newly created instance.</returns>
-        </member>
-        <member name="M:Enyim.Reflection.FastActivator.Create(System.Type)">
-            <summary>
-            Creates an instance of the specified type using a generated factory to avoid using Reflection.
-            </summary>
-            <param name="type">The type to be created.</param>
-            <returns>The newly created instance.</returns>
-        </member>
-        <member name="T:Enyim.Caching.ILogFactory">
-            <summary>
-            Implement this interface to instantiate your custom ILog implementation
-            </summary>
-        </member>
-        <member name="T:Enyim.Caching.ILog">
-            <summary>
-            The ILog interface is used by the client to log messages.
-            </summary>
-            <remarks>Use the <see cref="T:Enyim.Caching.LogManager" /> class to programmatically assign logger implementations.</remarks>
-        </member>
-        <member name="T:Enyim.Caching.LogManager">
-            <summary>
-            Creates loggers based on the current configuration.
-            </summary>
-            <example>
-            
-            Config file:
-            
-            <configuration>
-            	<configSections>
-            		<sectionGroup name="enyim.com">
-            			<section name="log" type="Enyim.Caching.EnyimLoggerSection, Enyim.Caching" />
-            		</sectionGroup>
-            	</configSections>
-            	<enyim.com>
-            		<log factory="Enyim.Caching.Log4NetLoggerFactory, Enyim.Caching" />
-            	</enyim.com>
-            </configuration>
-            
-            Code:
-            
-            	LogManager.AssignFactory(new Log4NetLogFactory());
-            
-            </example>
-        </member>
-        <member name="M:Enyim.Caching.LogManager.AssignFactory(Enyim.Caching.ILogFactory)">
-            <summary>
-            Assigns a new logger factory programmatically.
-            </summary>
-            <param name="factory"></param>
-        </member>
-        <member name="M:Enyim.Caching.LogManager.GetLogger(System.Type)">
-            <summary>
-            Returns a new logger for the specified Type.
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Enyim.Caching.LogManager.GetLogger(System.String)">
-            <summary>
-            Returns a logger with the specified name.
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
         <member name="T:Enyim.Caching.Configuration.IAuthenticationConfiguration">
             <summary>
             Defines an interface for configuring the authentication paramaters the <see cref="T:MemcachedClient"/>.
@@ -214,6 +72,23 @@
             Helper method; converts the collection into an <see cref="T:IPEndPoint"/> collection for the interface implementation.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Enyim.Caching.Configuration.FactoryElement`1">
+            <summary>
+            This element is used to define locator/transcoder/keyTransformer instances. It also provides custom initializations for them using a factory.
+            </summary>
+            <typeparam name="TFactory"></typeparam>
+        </member>
+        <member name="M:Enyim.Caching.Configuration.FactoryElement`1.CreateInstance">
+            <summary>
+            Creates the provider by using the factory (if present) or directly instantiating by type name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Enyim.Caching.Configuration.FactoryElement`1.Factory">
+            <summary>
+            Gets or sets the type of the factory.
+            </summary>
         </member>
         <member name="T:Enyim.Caching.Configuration.IMemcachedClientConfiguration">
             <summary>
@@ -492,54 +367,25 @@
             CDATA config element
             </summary>
         </member>
-        <member name="T:Enyim.HashkitCrc32">
+        <member name="T:Enyim.Reflection.FastActivator">
             <summary>
-            CRC-32 implementation. Compatible with libhashkit.
+            <para>Implements a very fast object factory for dynamic object creation. Dynamically generates a factory class which will use the new() constructor of the requested type.</para>
+            <para>Much faster than using Activator at the price of the first invocation being significantly slower than subsequent calls.</para>
             </summary>
         </member>
-        <member name="T:Enyim.HashkitMurmur">
+        <member name="M:Enyim.Reflection.FastActivator.Create``1">
             <summary>
-            Murmur hash. Uses the same seed values as libhashkit.
+            Creates an instance of the specified type using a generated factory to avoid using Reflection.
             </summary>
-            <remarks>Does not support block based hashing.</remarks>
+            <typeparam name="T">The type to be created.</typeparam>
+            <returns>The newly created instance.</returns>
         </member>
-        <member name="T:Enyim.HashkitOneAtATime">
+        <member name="M:Enyim.Reflection.FastActivator.Create(System.Type)">
             <summary>
-            This is Jenkin's "One at A time Hash".
-            http://en.wikipedia.org/wiki/Jenkins_hash_function
-            
-            Coming from libhashkit.
+            Creates an instance of the specified type using a generated factory to avoid using Reflection.
             </summary>
-            <remarks>Does not support block based hashing.</remarks>
-        </member>
-        <member name="T:Enyim.HashCodeCombiner">
-            <summary>
-            Combines multiple hash codes into one.
-            </summary>
-        </member>
-        <member name="T:Enyim.Collections.InterlockedQueue`1">
-            <summary>
-            Implements a non-locking queue.
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Enyim.Collections.InterlockedQueue`1.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:InterlockedQueue"/> class.
-            </summary>
-        </member>
-        <member name="M:Enyim.Collections.InterlockedQueue`1.Dequeue(`0@)">
-            <summary>
-            Removes and returns the item at the beginning of the <see cref="T:InterlockedQueue"/>.
-            </summary>
-            <param name="value">The object that is removed from the beginning of the <see cref="T:InterlockedQueue"/>.</param>
-            <returns><value>true</value> if an item was successfully dequeued; otherwise <value>false</value>.</returns>
-        </member>
-        <member name="M:Enyim.Collections.InterlockedQueue`1.Enqueue(`0)">
-            <summary>
-            Adds an object to the end of the <see cref="T:InterlockedQueue"/>.
-            </summary>
-            <param name="value">The item to be added to the <see cref="T:InterlockedQueue"/>. The value can be <value>null</value>.</param>
+            <param name="type">The type to be created.</param>
+            <returns>The newly created instance.</returns>
         </member>
         <member name="T:Enyim.FNV64">
             <summary>
@@ -638,6 +484,122 @@
             </summary>
             <returns>The computed hash code.</returns>
         </member>
+        <member name="T:Enyim.HashCodeCombiner">
+            <summary>
+            Combines multiple hash codes into one.
+            </summary>
+        </member>
+        <member name="T:Enyim.HashkitCrc32">
+            <summary>
+            CRC-32 implementation. Compatible with libhashkit.
+            </summary>
+        </member>
+        <member name="T:Enyim.HashkitMurmur">
+            <summary>
+            Murmur hash. Uses the same seed values as libhashkit.
+            </summary>
+            <remarks>Does not support block based hashing.</remarks>
+        </member>
+        <member name="T:Enyim.HashkitOneAtATime">
+            <summary>
+            This is Jenkin's "One at A time Hash".
+            http://en.wikipedia.org/wiki/Jenkins_hash_function
+            
+            Coming from libhashkit.
+            </summary>
+            <remarks>Does not support block based hashing.</remarks>
+        </member>
+        <member name="T:Enyim.Caching.IMemcachedResultsClient">
+            <summary>
+            Interface for API methods that return detailed operation results
+            </summary>
+        </member>
+        <member name="T:Enyim.Collections.InterlockedQueue`1">
+            <summary>
+            Implements a non-locking queue.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Enyim.Collections.InterlockedQueue`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:InterlockedQueue"/> class.
+            </summary>
+        </member>
+        <member name="M:Enyim.Collections.InterlockedQueue`1.Dequeue(`0@)">
+            <summary>
+            Removes and returns the item at the beginning of the <see cref="T:InterlockedQueue"/>.
+            </summary>
+            <param name="value">The object that is removed from the beginning of the <see cref="T:InterlockedQueue"/>.</param>
+            <returns><value>true</value> if an item was successfully dequeued; otherwise <value>false</value>.</returns>
+        </member>
+        <member name="M:Enyim.Collections.InterlockedQueue`1.Enqueue(`0)">
+            <summary>
+            Adds an object to the end of the <see cref="T:InterlockedQueue"/>.
+            </summary>
+            <param name="value">The item to be added to the <see cref="T:InterlockedQueue"/>. The value can be <value>null</value>.</param>
+        </member>
+        <member name="T:Enyim.Collections.InterlockedStack`1">
+            <summary>
+            Implements a non-locking stack.
+            </summary>
+            <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="T:Enyim.Caching.ILogFactory">
+            <summary>
+            Implement this interface to instantiate your custom ILog implementation
+            </summary>
+        </member>
+        <member name="T:Enyim.Caching.ILog">
+            <summary>
+            The ILog interface is used by the client to log messages.
+            </summary>
+            <remarks>Use the <see cref="T:Enyim.Caching.LogManager" /> class to programmatically assign logger implementations.</remarks>
+        </member>
+        <member name="T:Enyim.Caching.LogManager">
+            <summary>
+            Creates loggers based on the current configuration.
+            </summary>
+            <example>
+            
+            Config file:
+            
+            <configuration>
+            	<configSections>
+            		<sectionGroup name="enyim.com">
+            			<section name="log" type="Enyim.Caching.EnyimLoggerSection, Enyim.Caching" />
+            		</sectionGroup>
+            	</configSections>
+            	<enyim.com>
+            		<log factory="Enyim.Caching.Log4NetLoggerFactory, Enyim.Caching" />
+            	</enyim.com>
+            </configuration>
+            
+            Code:
+            
+            	LogManager.AssignFactory(new Log4NetLogFactory());
+            
+            </example>
+        </member>
+        <member name="M:Enyim.Caching.LogManager.AssignFactory(Enyim.Caching.ILogFactory)">
+            <summary>
+            Assigns a new logger factory programmatically.
+            </summary>
+            <param name="factory"></param>
+        </member>
+        <member name="M:Enyim.Caching.LogManager.GetLogger(System.Type)">
+            <summary>
+            Returns a new logger for the specified Type.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enyim.Caching.LogManager.GetLogger(System.String)">
+            <summary>
+            Returns a logger with the specified name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="T:Enyim.Caching.NullLoggerFactory">
             <summary>
             Creates an empty logger. Used when no other factories are installed.
@@ -646,11 +608,6 @@
         <member name="T:Enyim.Caching.MemcachedClient">
             <summary>
             Memcached client.
-            </summary>
-        </member>
-        <member name="T:Enyim.Caching.IMemcachedResultsClient">
-            <summary>
-            Interface for API methods that return detailed operation results
             </summary>
         </member>
         <member name="F:Enyim.Caching.MemcachedClient.Infinite">
@@ -954,12 +911,30 @@
             <param name="key">The identifier for the item to delete.</param>
             <returns>true if the item was successfully removed from the cache; false otherwise.</returns>
         </member>
+        <member name="M:Enyim.Caching.MemcachedClient.Remove(System.String,System.UInt64)">
+            <summary>
+            Removes the specified item from the cache.
+            </summary>
+            <param name="key">The identifier for the item to delete.</param>
+            <param name="cas">The Cas value associated with the key</param>
+            <returns>true if the item was successfully removed from the cache; false otherwise.</returns>
+        </member>
         <member name="M:Enyim.Caching.MemcachedClient.Get(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Retrieves multiple items from the cache.
             </summary>
             <param name="keys">The list of identifiers for the items to retrieve.</param>
             <returns>a Dictionary holding all items indexed by their key.</returns>
+        </member>
+        <member name="M:Enyim.Caching.MemcachedClient.PerformMultiGet``1(System.Collections.Generic.IEnumerable{System.String},System.Func{Enyim.Caching.Memcached.IMultiGetOperation,System.Collections.Generic.KeyValuePair{System.String,Enyim.Caching.Memcached.CacheItem},``0},System.Func{Enyim.Caching.Memcached.Results.IOperationResult,``0})">
+            <summary>
+            Performs the retrieval of multiple items from the cache.
+            </summary>
+            <param name="keys">The list of identifiers for the items to retrieve.</param>
+            <param name="collector">The collector of found items.</param>
+            <param name="failureCollector">The collector of failed items. If <c>null</c>, failed items are ignored.</param>
+            <remarks>If item is not retrieved because key does not exist, it will be omitted from the returned dictionary even if <paramref name="failureCollector"/> is specified.</remarks>
+            <returns>a Dictionary holding items indexed by their key.</returns>
         </member>
         <member name="M:Enyim.Caching.MemcachedClient.SafeWaitAllAndDispose(System.Threading.WaitHandle[])">
             <summary>
@@ -1240,23 +1215,48 @@
             <param name="data">The data to be prepended to the item.</param>
             <returns>true if the data was successfully stored; false otherwise.</returns>
         </member>
-        <member name="M:Enyim.Caching.MemcachedClient.ExecuteRemove(System.String)">
+        <member name="M:Enyim.Caching.MemcachedClient.ExecuteRemove(System.String,System.UInt64)">
             <summary>
             Removes the specified item from the cache.
             </summary>
             <param name="key">The identifier for the item to delete.</param>
             <returns>true if the item was successfully removed from the cache; false otherwise.</returns>
         </member>
-        <member name="F:Enyim.Caching.Memcached.PooledSocket.InstanceId">
+        <member name="M:Enyim.Caching.Memcached.IPooledSocket.Release">
+            <summary>
+            replaces call to Dispose to release instance back into pool
+            </summary>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IPooledSocket.ReadByte">
+            <summary>
+            Reads the next byte from the server's response.
+            </summary>
+            <remarks>This method blocks and will not return until the value is read.</remarks>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IPooledSocket.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads data from the server into the specified buffer.
+            </summary>
+            <param name="buffer">An array of <see cref="T:System.Byte"/> that is the storage location for the received data.</param>
+            <param name="offset">The location in buffer to store the received data.</param>
+            <param name="count">The number of bytes to read.</param>
+            <remarks>This method blocks and will not return until the specified amount of bytes are read.</remarks>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IPooledSocket.ReceiveAsync(Enyim.Caching.Memcached.AsyncIOArgs)">
+            <summary>
+            Receives data asynchronously. Returns true if the IO is pending. Returns false if the socket already failed or the data was available in the buffer.
+            p.Next will only be called if the call completes asynchronously.
+            </summary>
+        </member>
+        <member name="F:Enyim.Caching.Memcached.PooledSocket._instanceId">
             <summary>
             The ID of this instance. Used by the <see cref="T:MemcachedServer"/> to identify the instance in its inner lists.
             </summary>
         </member>
-        <member name="M:Enyim.Caching.Memcached.PooledSocket.Destroy">
+        <member name="M:Enyim.Caching.Memcached.PooledSocket.Release">
             <summary>
-            Releases all resources used by this instance and shuts down the inner <see cref="T:Socket"/>. This instance will not be usable anymore.
+            replaces call to Dispose to release instance back into pool
             </summary>
-            <remarks>Use the IDisposable.Dispose method if you want to release this instance back into the pool.</remarks>
         </member>
         <member name="M:Enyim.Caching.Memcached.PooledSocket.ReadByte">
             <summary>
@@ -1388,6 +1388,49 @@
             Provides custom server pool implementations
             </summary>
         </member>
+        <member name="T:Enyim.Caching.Memcached.FailImmediatelyPolicy">
+            <summary>
+            Fails a node immediately when an error occures. This is the default policy.
+            </summary>
+        </member>
+        <member name="T:Enyim.Caching.Memcached.FailImmediatelyPolicyFactory">
+            <summary>
+            Creates instances of <see cref="T:FailImmediatelyPolicy"/>.
+            </summary>
+        </member>
+        <member name="T:Enyim.Caching.Memcached.ThrottlingFailurePolicy">
+            <summary>
+            Fails a node when the specified number of failures happen in a specified time window.
+            </summary>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.ThrottlingFailurePolicy.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:ThrottlingFailurePolicy"/>.
+            </summary>
+            <param name="resetAfter">Specifies the time in milliseconds how long a node should function properly to reset its failure counter.</param>
+            <param name="failureThreshold">Specifies the number of failures that must occur in the specified time window to fail a node.</param>
+        </member>
+        <member name="T:Enyim.Caching.Memcached.ThrottlingFailurePolicyFactory">
+            <summary>
+            Creates instances of <see cref="T:ThrottlingFailurePolicy"/>.
+            </summary>
+        </member>
+        <member name="T:Enyim.Caching.Memcached.IProviderFactory`1">
+            <summary>
+            Provides a way for custom initalization of the providers (locators, transcoders, key transformers)
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Enyim.Caching.Memcached.ThrottlingFailurePolicyFactory.ResetAfter">
+            <summary>
+            Gets or sets the amount of time of in milliseconds after the failure counter is reset.
+            </summary>
+        </member>
+        <member name="P:Enyim.Caching.Memcached.ThrottlingFailurePolicyFactory.FailureThreshold">
+            <summary>
+            Gets or sets the number of failures that must happen in a time window to make a node marked as failed.
+            </summary>
+        </member>
         <member name="T:Enyim.Caching.Memcached.IMemcachedKeyTransformer">
             <summary>
             Converts Memcached item keys into a custom format.
@@ -1431,9 +1474,59 @@
             <remarks>It should return an instance which is safe to enumerate multiple times and provides the same results every time.</remarks>
             <returns></returns>
         </member>
+        <member name="T:Enyim.Caching.Memcached.IResourcePool">
+            <summary>
+            Provides an interface for implementing pools of disposable IPooledSocket objects.
+            </summary>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Acquire">
+            <summary>
+            Acquires an object from the pool.
+            </summary>
+            <returns>A pooled object</returns>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Release(Enyim.Caching.Memcached.IPooledSocket)">
+            <summary>
+            Releases an object back into the pool.
+            </summary>
+            <param name="resource"></param>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Close(Enyim.Caching.Memcached.IPooledSocket)">
+            <summary>
+            Closes all of the underlying resources held by the pooled object.
+            </summary>
+            <param name="resource"></param>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Ping">
+            <summary>
+            Pulls a socket from the pool and checks it's connection status.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Resurrect">
+            <summary>
+            Tries to recreate the underlying pool of objects.
+            </summary>
+        </member>
+        <member name="P:Enyim.Caching.Memcached.IResourcePool.IsAlive">
+            <summary>
+            Checks to see if the underlying resource is still "alive".
+            </summary>
+        </member>
         <member name="T:Enyim.Caching.Memcached.Base64KeyTransformer">
             <summary>
             A key transformer which converts the item keys into Base64.
+            </summary>
+        </member>
+        <member name="T:Enyim.Caching.Memcached.DefaultKeyTransformer">
+            <summary>
+            A transformer that simply returns the original key.
+            A valid UTF-8 key is recommended.
+            </summary>
+        </member>
+        <member name="T:Enyim.Caching.Memcached.KeyTransformers.LegacyMemcachedKeyTransformer">
+            <summary>
+            A key transfomer that provides support for legacy memcached key rules
             </summary>
         </member>
         <member name="T:Enyim.Caching.Memcached.SHA1KeyTransformer">
@@ -1444,11 +1537,6 @@
         <member name="T:Enyim.Caching.Memcached.TigerHashKeyTransformer">
             <summary>
             A key transformer which converts the item keys into their Tiger hash.
-            </summary>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.KetamaNodeLocatorFactory">
-            <summary>
-            Implements Ketama cosistent hashing, compatible with the "spymemcached" Java client
             </summary>
         </member>
         <member name="T:Enyim.Caching.Memcached.DefaultNodeLocator">
@@ -1501,6 +1589,11 @@
             in case an IMemcachedConfig implementation returns the same instance form the CreateLocator()
             </summary>
         </member>
+        <member name="T:Enyim.Caching.Memcached.KetamaNodeLocatorFactory">
+            <summary>
+            Implements Ketama cosistent hashing, compatible with the "spymemcached" Java client
+            </summary>
+        </member>
         <member name="T:Enyim.Caching.Memcached.SingleNodeLocator">
             <summary>
             This is a simple node locator with no computation overhead, always returns the first server from the list. Use only in single server deployments.
@@ -1540,10 +1633,12 @@
             </summary>
             <returns>An <see cref="T:PooledSocket"/> instance which is connected to the memcached server, or <value>null</value> if the pool is dead.</returns>
         </member>
-        <member name="M:Enyim.Caching.Memcached.MemcachedNode.Dispose">
+        <member name="M:Enyim.Caching.Memcached.MemcachedNode.TryToFail">
             <summary>
-            Releases all resources allocated by this instance
+            Tries to perform any actions on failure. Returns true if the policy
+            indicates that we should fail this node
             </summary>
+            <returns></returns>
         </member>
         <member name="P:Enyim.Caching.Memcached.MemcachedNode.EndPoint">
             <summary>
@@ -1568,18 +1663,13 @@
             </summary>
             <returns>An <see cref="T:PooledSocket"/> instance which is connected to the memcached server, or <value>null</value> if the pool is dead.</returns>
         </member>
-        <member name="M:Enyim.Caching.Memcached.MemcachedNode.InternalPoolImpl.ReleaseSocket(Enyim.Caching.Memcached.PooledSocket)">
+        <member name="M:Enyim.Caching.Memcached.MemcachedNode.InternalPoolImpl.ReleaseSocket(Enyim.Caching.Memcached.IPooledSocket)">
             <summary>
             Releases an item back into the pool
             </summary>
             <param name="socket"></param>
         </member>
-        <member name="M:Enyim.Caching.Memcached.MemcachedNode.InternalPoolImpl.Dispose">
-            <summary>
-            Releases all resources allocated by this instance
-            </summary>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.IOperation.ReadResponseAsync(Enyim.Caching.Memcached.PooledSocket,System.Action{System.Boolean})">
+        <member name="M:Enyim.Caching.Memcached.IOperation.ReadResponseAsync(Enyim.Caching.Memcached.IPooledSocket,System.Action{System.Boolean})">
             <summary>
             'next' is called when the operation completes. The bool parameter indicates the success of the operation.
             </summary>
@@ -1612,7 +1702,7 @@
             Authenticates the new socket before it is put into the pool.
             </summary>
         </member>
-        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.BinaryNode.Auth(Enyim.Caching.Memcached.PooledSocket)">
+        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.BinaryNode.Auth(Enyim.Caching.Memcached.IPooledSocket)">
             <summary>
             Implements memcached's SASL auth sequence. (See the protocol docs for more details.)
             </summary>
@@ -1629,7 +1719,7 @@
             Server pool implementing the binary protocol.
             </summary>
         </member>
-        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.BinaryResponse.ReadAsync(Enyim.Caching.Memcached.PooledSocket,System.Action{System.Boolean},System.Boolean@)">
+        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.BinaryResponse.ReadAsync(Enyim.Caching.Memcached.IPooledSocket,System.Action{System.Boolean},System.Boolean@)">
             <summary>
             Reads the response from the socket asynchronously.
             </summary>
@@ -1667,7 +1757,29 @@
             Starts the SASL auth sequence.
             </summary>
         </member>
-        <member name="M:Enyim.Caching.Memcached.Protocol.Text.TextSocketHelper.ReadResponse(Enyim.Caching.Memcached.PooledSocket)">
+        <member name="T:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions">
+            <summary>
+            Provides a means of accessing internal protected methods of the SaslStep class to
+            assemblies that are using the SaslStep class without changing the interface of that
+            class.
+            </summary>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions.GetBuffer(Enyim.Caching.Memcached.Protocol.Binary.SaslStep)">
+            <summary>
+            Gets the buffer of the current SaslStep
+            </summary>
+            <param name="step">The current Sasl step.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions.ReadResponse(Enyim.Caching.Memcached.Protocol.Binary.SaslStep,Enyim.Caching.Memcached.IPooledSocket)">
+            <summary>
+            Reads the response.
+            </summary>
+            <param name="step">The current SaslStep.</param>
+            <param name="socket">The socket.to read from.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.Protocol.Text.TextSocketHelper.ReadResponse(Enyim.Caching.Memcached.IPooledSocket)">
             <summary>
             Reads the response of the server.
             </summary>
@@ -1676,7 +1788,7 @@
             <exception cref="T:Enyim.Caching.Memcached.MemcachedException">The server did not specified any reason just returned the string ERROR. - or - The server returned a SERVER_ERROR, in this case the Message of the exception is the message returned by the server.</exception>
             <exception cref="T:Enyim.Caching.Memcached.MemcachedClientException">The server did not recognize the request sent by the client. The Message of the exception is the message returned by the server.</exception>
         </member>
-        <member name="M:Enyim.Caching.Memcached.Protocol.Text.TextSocketHelper.ReadLine(Enyim.Caching.Memcached.PooledSocket)">
+        <member name="M:Enyim.Caching.Memcached.Protocol.Text.TextSocketHelper.ReadLine(Enyim.Caching.Memcached.IPooledSocket)">
             <summary>
             Reads a line from the socket. A line is terninated by \r\n.
             </summary>

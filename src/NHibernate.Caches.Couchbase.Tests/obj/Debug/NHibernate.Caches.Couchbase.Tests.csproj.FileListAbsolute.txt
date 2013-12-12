@@ -10,16 +10,13 @@ C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Couchbase.dll
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Enyim.Caching.dll
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Hammock.dll
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\NHibernate.Caches.Couchbase.pdb
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Iesi.Collections.xml
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\log4net.xml
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\NHibernate.xml
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\nunit.framework.xml
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Couchbase.xml
-C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Enyim.Caching.pdb
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Enyim.Caching.xml
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\bin\Debug\Hammock.pdb
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\obj\Debug\NHibernate.Caches.Couchbase.Tests.dll
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase.Tests\obj\Debug\NHibernate.Caches.Couchbase.Tests.pdb

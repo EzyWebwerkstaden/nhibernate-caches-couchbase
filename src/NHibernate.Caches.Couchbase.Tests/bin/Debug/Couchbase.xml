@@ -4,6 +4,159 @@
         <name>Couchbase</name>
     </assembly>
     <members>
+        <member name="T:Couchbase.AsyncSocketHelper2">
+            <summary>
+            Supports exactly one reader and writer, but they can do IO concurrently
+            </summary>
+            <note>This class was a private class in the Enyim.Caching.PooledSocket class. I pulled it into
+            this assembly because any IPooledSocket is dependent upon it ATM. It will be rewritten or removed.
+            Since the implmentation hasn't really changed, I just renamed it with a "2" postfix to eliminate any
+            naming collisions with the 'real' AsyncSocketHelper class</note>
+        </member>
+        <member name="M:Couchbase.AsyncSocketHelper2.Read(Enyim.Caching.Memcached.AsyncIOArgs)">
+            <summary>
+            returns true if io is pending
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.AsyncSocketHelper2.EndReceive">
+            <summary>
+            returns true when io is pending
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Couchbase.Configuration.IHttpClientConfiguration.InitializeConnection">
+            <summary>
+            When true, instructs the client to pre-fetch a given URI
+            to initialize the ServicePoint for future requests
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.IHttpClientConfiguration.Timeout">
+            <summary>
+            Timeout applied to HTTP requests
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.HttpClientElement.InitializeConnection">
+            <summary>
+            When true, instructs the client to pre-fetch a given URI
+            to initialize the ServicePoint for future requests
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.HttpClientElement.Timeout">
+            <summary>
+            Gets or sets the timeout for http client connections
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.Limit(System.Int32)" -->
+        <member name="M:Couchbase.ISpatialView`1.Skip(System.Int32)">
+            <summary>
+            Bypasses the specified number of elements in the view then returns the remaining items.
+            </summary>
+            <param name="value">The number of elements to skip before returning the remaining items.</param>
+            <returns></returns>
+            <returns>A <see cref="T:Couchbase.ISpatialView"/> that contains the items that occur after the specified index in the view.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.Stale(Couchbase.StaleMode)" -->
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ISpatialView`1.BoundingBox(System.Single,System.Single,System.Single,System.Single)" -->
+        <member name="M:Couchbase.CouchbaseViewHandler.CreateRequest(Couchbase.IHttpClient,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Builds the request uri based on the parameters set by the user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Couchbase.Exceptions.ViewException">
+            <summary>
+            Standard exception class thrown on when view errors are encountered
+            </summary>
+        </member>
+        <member name="T:Couchbase.Exceptions.NodeShutdownException">
+            <summary>
+            Thrown when an application thread tries to use a CouchbaseNode that has been shutdown.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Exceptions.QueueTimeoutException">
+            <summary>
+            Thrown when the timeout expires while waiting for a socket
+            from the pool. The default expiry is 100ms. In general, the
+            more sockets you have configured the lower this number can be;
+            if you go to low, then you will begin receiving the exceptions.
+            This value can be configured by the queueTimeout property in
+            the socketPool section of the App.Config.
+            </summary>
+        </member>
+        <member name="T:Couchbase.Exceptions.ViewNotFoundException">
+            <summary>
+            Exception thrown when non-existent view is queried
+            </summary>
+        </member>
+        <member name="T:Couchbase.IHttpClient">
+            <summary>
+            Defines an http client used by the <see cref="T:CouchbaseNode"/> to retrieve data from the views.
+            </summary>
+        </member>
+        <member name="T:Couchbase.IHttpRequest">
+            <summary>
+            Represents an http request sent to the Couchbase servers.
+            </summary>
+        </member>
+        <member name="M:Couchbase.IHttpRequest.AddParameter(System.String,System.String)">
+            <summary>
+            Adds a parameter to the request. Parameters will be appended to the query string or to the POST body, depending on the type of the request.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Couchbase.IHttpRequest.GetResponse">
+            <summary>
+            Executes the request and returns the response sent by the server.
+            </summary>
+            <returns>The response sent by the server.</returns>
+        </member>
+        <member name="P:Couchbase.IHttpRequest.Method">
+            <summary>
+            The HTTP method of the request.
+            </summary>
+        </member>
+        <member name="T:Couchbase.IHttpResponse">
+            <summary>
+            represents an http response sent by the Couchbase servers.
+            </summary>
+        </member>
+        <member name="T:Couchbase.DefaultHttpClient.HttpWebRequestWrapper">
+            <summary>
+            WebClientWithTimeout and its base WebClient
+            do not alow for params to be set after
+            instantiation.  This wrapper will allow for 
+            that scenario.
+            </summary>
+        </member>
+        <member name="T:Couchbase.IHttpClientFactory">
+            <summary>
+            defines a class which is responsible for creating <see cref="T:Couchbase.IHttpClient"/> instances.
+            </summary>
+        </member>
+        <member name="P:Couchbase.ISpatialViewRow.Id">
+            <summary>
+            Returns the id of the item referenced by this row. This id can be used to
+            perform the standard (Set/Get/Remove/etc.) operations on the item.
+            </summary>
+        </member>
+        <member name="P:Couchbase.ISpatialViewRow.BoundingBox">
+            <summary>
+            Bounding box of indexed coordinates from document
+            </summary>
+        </member>
+        <member name="P:Couchbase.ISpatialViewRow.Geometry">
+            <summary>
+            Structure containing geometry data (e.g., coordinates, type).
+            </summary>
+        </member>
+        <member name="P:Couchbase.ISpatialViewRow.Value">
+            <summary>
+            Value emitted by map function
+            </summary>
+        </member>
         <member name="M:Couchbase.BucketConfigListener.Start">
             <summary>
             Starts listening for configuration data. This method blocks until the initial configuration is received. (Or until all pool urls fail.)
@@ -11,13 +164,13 @@
         </member>
         <member name="M:Couchbase.BucketConfigListener.ReleaseListener(Couchbase.MessageStreamListener)">
             <summary>
-            Unsubscibes from a pooled listener, and destrpys it if no additionals subscribers are present.
+            Unsubscribes from a pooled listener, and destroys it if no additional subscribers are present.
             </summary>
             <param name="listener"></param>
         </member>
         <member name="M:Couchbase.BucketConfigListener.GetPooledListener">
             <summary>
-            Returns a MessageStreamListener instance based on this instance's configuratino (timeout, bucket name etc.)
+            Returns a MessageStreamListener instance based on this instance's configuration (timeout, bucket name etc.)
             
             When multiple listeners are requested with the exact same parameters (usually when multiple clients are instantiated from the same configuration),
             the same listener will be returned each time.
@@ -177,9 +330,33 @@
             Gets the configuration of the heartbeat monitor.
             </summary>
         </member>
+        <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.HttpClient">
+            <summary>
+            Gets the configuration of the http client.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.VBucketRetryCount">
+            <summary>
+            The number of loops to try over a set of nodes when cluster has changed
+            (i.e. rebalance, failover, etc) and NotMyVBucket response is returned from
+            the cluster. Most of the times this is resolved in the first iteration.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.HttpRequestTimeout">
+            <summary>
+            Timeout used for timing out HTTP requests to RESTful API calls
+            </summary>
+        </member>
         <member name="T:Couchbase.Configuration.CouchbaseClientConfiguration">
             <summary>
             Configuration class
+            </summary>
+        </member>
+        <member name="F:Couchbase.Configuration.CouchbaseClientConfiguration._vBucketRetryCount">
+            <summary>
+            The number of loops to try over a set of nodes when cluster has changed
+            (i.e. rebalance, failover, etc) and NotMyVBucket response is returned from
+            the cluster. Most of the times this is resolved in the first iteration.
             </summary>
         </member>
         <member name="M:Couchbase.Configuration.CouchbaseClientConfiguration.#ctor">
@@ -226,6 +403,11 @@
         <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.HeartbeatMonitor">
             <summary>
             Gets or sets the configuration of the heartbeat monitor.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.HttpClient">
+            <summary>
+            Gets or sets the configuration of the http client.
             </summary>
         </member>
         <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.KeyTransformer">
@@ -278,6 +460,11 @@
         <member name="P:Couchbase.Configuration.CouchbaseClientSection.HeartbeatMonitor">
             <summary>
             Gets or sets the configuration of the socket pool.
+            </summary>
+        </member>
+        <member name="P:Couchbase.Configuration.CouchbaseClientSection.HttpClient">
+            <summary>
+            Gets or sets the configuration of the http client.
             </summary>
         </member>
         <member name="P:Couchbase.Configuration.CouchbaseClientSection.NodeLocator">
@@ -489,16 +676,28 @@
             <param name="pagedViewKeyProperty">When paging over a generic view, this is the property to which the row's key is mapped</param>
             <returns></returns>
         </member>
+        <member name="M:Couchbase.IView`1.Debug(System.Boolean)">
+            <summary>
+            Specifies whether Couchbase should return debug info
+            </summary>
+            <param name="debug">A value that specifies whether to include debug info.</param>
+            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items, including debug info.</returns>
+        </member>
+        <member name="M:Couchbase.IView`1.CheckExists">
+            <summary>
+            Will execute an HTTP query to check the design document for the existence of a view
+            </summary>
+            <returns>True if design doc is found</returns>
+        </member>
         <member name="P:Couchbase.IView`1.TotalRows">
             <summary>
             TotalRows that would be returned by view, regardless of filters
             </summary>
         </member>
-        <member name="M:Couchbase.CouchbaseViewBase`1.CreateRequest(Couchbase.IHttpClient)">
+        <member name="P:Couchbase.IView`1.DebugInfo">
             <summary>
-            Builds the request uri based on the parameters set by the user
+            Debug info when Debug param is true
             </summary>
-            <returns></returns>
         </member>
         <member name="T:Couchbase.CouchbaseView">
             <summary>
@@ -525,54 +724,6 @@
         <member name="P:Couchbase.IViewRow.Info">
             <summary>
             Returns all data from the row. These are usually parts of the original document emitted by the mapper (or the reducer).
-            </summary>
-        </member>
-        <member name="T:Couchbase.HammockHttpClient">
-            <summary>
-            Default implementation of the <see cref="T:Couchbase.IHttpClient"/> using the Hammock REST library.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpClient">
-            <summary>
-            Defines an http client used by the <see cref="T:CouchbaseNode"/> to retrieve data from the views.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpRequest">
-            <summary>
-            Represents an http request sent to the Couchbase servers.
-            </summary>
-        </member>
-        <member name="M:Couchbase.IHttpRequest.AddParameter(System.String,System.String)">
-            <summary>
-            Adds a parameter to the request. Parameters will be appended to the query string or to the POST body, depending on the type of the request.
-            </summary>
-            <param name="name"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Couchbase.IHttpRequest.GetResponse">
-            <summary>
-            Executes the request and returns the response sent by the server.
-            </summary>
-            <returns>The response sent by the server.</returns>
-        </member>
-        <member name="P:Couchbase.IHttpRequest.Method">
-            <summary>
-            The HTTP method of the request.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpResponse">
-            <summary>
-            represents an http response sent by the Couchbase servers.
-            </summary>
-        </member>
-        <member name="T:Couchbase.HammockHttpClientFactory">
-            <summary>
-            Creates instances of the Hammock implementation of <see cref="T:Couchbase.IHttpClient"/>.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpClientFactory">
-            <summary>
-            defines a class which is responsible for creating <see cref="T:Couchbase.IHttpClient"/> instances.
             </summary>
         </member>
         <member name="M:Couchbase.IView.Limit(System.Int32)">
@@ -673,6 +824,34 @@
             <returns>An array of Bucket instances</returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Couchbase.Management.ICouchbaseCluster.TryListBuckets(Couchbase.Management.Bucket[]@)" -->
+        <member name="M:Couchbase.Management.ICouchbaseCluster.GetBucket(System.String)">
+            <summary>
+            Get a single bucket
+            </summary>
+            <param name="buckeName">Bucket name</param>
+            <returns>Instance of a Bucket</returns>
+        </member>
+        <member name="M:Couchbase.Management.ICouchbaseCluster.TryGetBucket(System.String,Couchbase.Management.Bucket@)">
+            <summary>
+            Get a single bucket
+            </summary>
+            <param name="buckeName">Bucket name</param>
+            <param name="bucket">Bucket to return</param>
+            <returns>True if bucket is found</returns>
+        </member>
+        <member name="M:Couchbase.Management.ICouchbaseCluster.GetItemCount(System.String)">
+            <summary>
+            Get count of items for a given bucket
+            </summary>
+            <param name="bucketName">Bucket name</param>
+            <returns>Count of items</returns>
+        </member>
+        <member name="M:Couchbase.Management.ICouchbaseCluster.GetItemCount">
+            <summary>
+            Get count of items for all buckets
+            </summary>
+            <returns>Count of items</returns>
+        </member>
         <member name="M:Couchbase.Management.ICouchbaseCluster.FlushBucket(System.String)">
             <summary>
             Flush all data from a bucket
@@ -684,7 +863,12 @@
             Create a new bucket on the server
             </summary>
             <param name="bucket">Bucket to create</param>
-            <returns>True if successful</returns>
+        </member>
+        <member name="M:Couchbase.Management.ICouchbaseCluster.UpdateBucket(Couchbase.Management.Bucket)">
+            <summary>
+            Update a bucket on the server
+            </summary>
+            <param name="bucket">Bucket to create</param>
         </member>
         <member name="M:Couchbase.Management.ICouchbaseCluster.DeleteBucket(System.String)">
             <summary>
@@ -723,11 +907,7 @@
             <param name="bucket">The name of the bucket</param>
             <param name="name">The name of the design document, less the _design</param>
         </member>
-        <member name="M:Couchbase.ObserveHandler.HandleMasterPersistence(Couchbase.ICouchbaseServerPool)">
-            <summary>
-            Handle the scenario when PersistTo == 1
-            </summary>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:Couchbase.ObserveHandler.HandleMasterOnlyInCache(Couchbase.ICouchbaseServerPool)" -->
         <member name="T:Couchbase.MessageStreamListener">
             <summary>
             Listens on a streamingUri and processes the messages
@@ -748,6 +928,12 @@
         <member name="M:Couchbase.MessageStreamListener.Stop">
             <summary>
             Stops processing
+            </summary>
+        </member>
+        <member name="M:Couchbase.MessageStreamListener.UpdateNodes(Couchbase.Configuration.ClusterConfig)">
+            <summary>
+            When cluster config changes, update the static config
+            list of bootstrap URIs with known working nodes from cluster config
             </summary>
         </member>
         <member name="M:Couchbase.MessageStreamListener.SleepUntil(System.Int32)">
@@ -773,8 +959,8 @@
             </summary>
         </member>
         <member name="T:Couchbase.CouchbaseClient">
-            <summary>
-            Client which can be used to connect to NothScale's Memcached and Couchbase servers.
+            <summary>D:\dev\couchbase-net-client\src\Couchbase\CouchbaseViewBase.cs
+            Client which can be used to connect to Couchbase servers.
             </summary>
         </member>
         <member name="M:Couchbase.CouchbaseClient.#ctor">
@@ -820,6 +1006,453 @@
             </summary>
             <param name="sectionName">The name of the configuration section to load.</param>
         </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformTryGet(System.String,System.UInt64@,System.Object@)">
+            <summary>
+            Performs the try get.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformMutate(Enyim.Caching.Memcached.MutationMode,System.String,System.UInt64,System.UInt64,System.UInt32,System.UInt64@)">
+            <summary>
+            Performs the mutate.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="defaultValue">The default value.</param>
+            <param name="delta">The delta.</param>
+            <param name="expires">The expires.</param>
+            <param name="cas">The cas.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformConcatenate(Enyim.Caching.Memcached.ConcatenationMode,System.String,System.UInt64@,System.ArraySegment{System.Byte})">
+            <summary>
+            Performs the concatenate.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,System.UInt32,System.UInt64@,System.Int32@)">
+            <summary>
+            Performs the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="expires">The expires.</param>
+            <param name="cas">The cas.</param>
+            <param name="statusCode">The status code.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Touch(System.String,System.DateTime)">
+            <summary>
+            Touches the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="nextExpiration">The next expiration.</param>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Touch(System.String,System.TimeSpan)">
+            <summary>
+            Touches the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="nextExpiration">The next expiration.</param>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformTouch(System.String,System.UInt32)">
+            <summary>
+            Performs the touch.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="nextExpiration">The next expiration.</param>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Get(System.String,System.DateTime)">
+            <summary>
+            Gets the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Get``1(System.String,System.DateTime)">
+            <summary>
+            Gets the specified key.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteGet(System.String,System.DateTime)">
+            <summary>
+            Executes the get.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteGet``1(System.String,System.DateTime)">
+            <summary>
+            Executes the get.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.TryGet(System.String,System.DateTime,System.Object@)">
+            <summary>
+            Tries the get.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteTryGet(System.String,System.DateTime,System.Object@)">
+            <summary>
+            Executes the try get.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.TryGetWithLock(System.String,System.TimeSpan,Enyim.Caching.Memcached.CasResult{System.Object}@)">
+            <summary>
+            Tries the get with lock.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="lockExpiration">The lock expiration.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteGetWithLock(System.String)">
+            <summary>
+            Executes the get with lock.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteGetWithLock``1(System.String)">
+            <summary>
+            Executes the get with lock.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteGetWithLock(System.String,System.TimeSpan)">
+            <summary>
+            Executes the get with lock.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="lockExpiration">The lock expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteGetWithLock``1(System.String,System.TimeSpan)">
+            <summary>
+            Executes the get with lock.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <param name="lockExpiration">The lock expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Unlock(System.String,System.UInt64)">
+            <summary>
+            Unlocks the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteUnlock(System.String,System.UInt64)">
+            <summary>
+            Executes the unlock.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetWithLock(System.String)">
+            <summary>
+            Gets the with lock.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetWithLock``1(System.String)">
+            <summary>
+            Gets the with lock.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetWithLock(System.String,System.TimeSpan)">
+            <summary>
+            Gets the with lock.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="lockExpiration">The lock expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetWithLock``1(System.String,System.TimeSpan)">
+            <summary>
+            Gets the with lock.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <param name="lockExpiration">The lock expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetWithCas(System.String,System.DateTime)">
+            <summary>
+            Gets the with cas.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetWithCas``1(System.String,System.DateTime)">
+            <summary>
+            Gets the with cas.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.TryGetWithCas(System.String,System.DateTime,Enyim.Caching.Memcached.CasResult{System.Object}@)">
+            <summary>
+            Tries the get with cas.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="newExpiration">The new expiration.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformTryGetAndTouch(System.String,System.UInt32,System.UInt64@,System.Object@)">
+            <summary>
+            Performs the try get and touch.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="nextExpiration">The next expiration.</param>
+            <param name="cas">The cas.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformTryGetWithLock(System.String,System.TimeSpan,System.UInt64@,System.Object@)">
+            <summary>
+            Performs the try get with lock.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="lockExpiration">The lock expiration.</param>
+            <param name="cas">The cas.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Timeout cannot be greater than 30 seconds</exception>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformUnlock(System.String,System.UInt64)">
+            <summary>
+            Performs the unlock.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,Couchbase.Operations.PersistTo,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="persistTo">The persist to.</param>
+            <param name="replciateTo">The replciate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,Couchbase.Operations.PersistTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="persistTo">The persist to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="replicateTo">The replicate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,System.DateTime,Couchbase.Operations.PersistTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="expiresAt">The expires at.</param>
+            <param name="persistTo">The persist to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,System.DateTime,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="expiresAt">The expires at.</param>
+            <param name="replicateTo">The replicate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,System.DateTime,Couchbase.Operations.PersistTo,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="expiresAt">The expires at.</param>
+            <param name="persistTo">The persist to.</param>
+            <param name="replicateTo">The replicate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,System.TimeSpan,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="validFor">The valid for.</param>
+            <param name="replicateTo">The replicate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,System.TimeSpan,Couchbase.Operations.PersistTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="validFor">The valid for.</param>
+            <param name="persistTo">The persist to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteStore(Enyim.Caching.Memcached.StoreMode,System.String,System.Object,System.TimeSpan,Couchbase.Operations.PersistTo,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the store.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="validFor">The valid for.</param>
+            <param name="persistTo">The persist to.</param>
+            <param name="replciateTo">The replciate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteRemove(System.String,Couchbase.Operations.PersistTo,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the remove.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="persistTo">The persist to.</param>
+            <param name="replciateTo">The replciate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteRemove(System.String,Couchbase.Operations.PersistTo)">
+            <summary>
+            Executes the remove.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="persistTo">The persist to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.ExecuteRemove(System.String,Couchbase.Operations.ReplicateTo)">
+            <summary>
+            Executes the remove.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="replicateTo">The replicate to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.KeyExists(System.String)">
+            <summary>
+            Keys the exists.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.KeyExists(System.String,System.UInt64)">
+            <summary>
+            Keys the exists.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Observe(System.String,System.UInt64,Couchbase.Operations.PersistTo,Couchbase.Operations.ReplicateTo,Couchbase.Operations.ObserveKeyState,Couchbase.Operations.ObserveKeyState)">
+            <summary>
+            Observes the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <param name="persistTo">The persist to.</param>
+            <param name="replicateTo">The replicate to.</param>
+            <param name="persistedKeyState">State of the persisted key.</param>
+            <param name="replicatedState">State of the replicated.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Sync(System.String,System.UInt64,Couchbase.SyncMode)">
+            <summary>
+            Synchronizes the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <param name="mode">The mode.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Sync(System.String,System.UInt64,Couchbase.SyncMode,System.Int32)">
+            <summary>
+            Synchronizes the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cas">The cas.</param>
+            <param name="mode">The mode.</param>
+            <param name="replicationCount">The replication count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Sync(Couchbase.SyncMode,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.UInt64}})">
+            <summary>
+            Synchronizes the specified mode.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="items">The items.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.PerformMultiSync(Couchbase.SyncMode,System.Int32,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.UInt64}})">
+            <summary>
+            Performs the multi synchronize.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="replicationCount">The replication count.</param>
+            <param name="items">The items.</param>
+            <returns></returns>
+        </member>
         <member name="M:Couchbase.CouchbaseClient.GetView(System.String,System.String)">
             <summary>
             Returns an object representing the specified view in the specified design document.
@@ -840,6 +1473,37 @@
             	simply attempts to deserialize the view's value into an instance of T by matching properties.
             </param>
             <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetSpatialView(System.String,System.String)">
+            <summary>
+            Gets the spatial view.
+            </summary>
+            <param name="designName">Name of the design.</param>
+            <param name="viewName">Name of the view.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.GetSpatialView``1(System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the spatial view.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="designName">Name of the design.</param>
+            <param name="viewName">Name of the view.</param>
+            <param name="shouldLookupDocById">if set to <c>true</c> [should lookup document by identifier].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.Get(Couchbase.IView)">
+            <summary>
+            Gets the specified view.
+            </summary>
+            <param name="view">The view.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Couchbase.CouchbaseClient.FlushAll">
+            <summary>
+            Removes all data from the cache. Note: this will invalidate all data on all servers in the pool.
+            </summary>
+            <exception cref="T:System.NotImplementedException">To flush a Couchbase bucket, use the Couchbase.Management API.</exception>
         </member>
         <member name="T:Couchbase.CouchbasePool">
             <summary>
@@ -863,6 +1527,21 @@
             <param name="configuration">The configuration to be used.</param>
             <param name="bucketName">The name of the bucket to connect to. Overrides the configuration's Bucket property.</param>
             <param name="bucketPassword">The password to the bucket. Overrides the configuration's BucketPassword property.</param>
+        </member>
+        <member name="F:Couchbase.CouchbasePooledSocket._helper2">
+            <summary>
+            Will be removed in later versions
+            </summary>
+        </member>
+        <member name="M:Couchbase.CouchbasePooledSocket.Dispose">
+            <summary>
+            Releases the resource back into the pool
+            </summary>
+        </member>
+        <member name="M:Couchbase.CouchbasePooledSocket.Close">
+            <summary>
+            Closes the connection and removes the resource from the pool
+            </summary>
         </member>
         <member name="T:Couchbase.Protocol.CouchbaseOpCode">
             <summary>
