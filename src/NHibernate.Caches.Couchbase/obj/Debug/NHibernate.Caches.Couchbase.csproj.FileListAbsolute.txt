@@ -13,3 +13,5 @@ C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\obj\Debug
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\obj\Debug\NHibernate.Caches.Couchbase.csprojResolveAssemblyReference.cache
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\bin\Debug\Iesi.Collections.dll
 C:\projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\bin\Debug\Iesi.Collections.xml
+C:\Projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\bin\Debug\NHibernate.Caches.Couchbase.dll.config
+C:\Projekt\nhibernate-caches-couchbase\src\NHibernate.Caches.Couchbase\bin\Debug\Couchbase.AspNet.dll

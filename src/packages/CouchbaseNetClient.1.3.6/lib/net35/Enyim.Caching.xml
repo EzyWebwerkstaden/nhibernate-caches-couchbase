@@ -4,6 +4,28 @@
         <name>Enyim.Caching</name>
     </assembly>
     <members>
+        <member name="T:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions">
+            <summary>
+            Provides a means of accessing internal protected methods of the SaslStep class to
+            assemblies that are using the SaslStep class without changing the interface of that
+            class.
+            </summary>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions.GetBuffer(Enyim.Caching.Memcached.Protocol.Binary.SaslStep)">
+            <summary>
+            Gets the buffer of the current SaslStep
+            </summary>
+            <param name="step">The current Sasl step.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions.ReadResponse(Enyim.Caching.Memcached.Protocol.Binary.SaslStep,Enyim.Caching.Memcached.IPooledSocket)">
+            <summary>
+            Reads the response.
+            </summary>
+            <param name="step">The current SaslStep.</param>
+            <param name="socket">The socket.to read from.</param>
+            <returns></returns>
+        </member>
         <member name="T:Enyim.Caching.Configuration.IAuthenticationConfiguration">
             <summary>
             Defines an interface for configuring the authentication paramaters the <see cref="T:MemcachedClient"/>.
@@ -31,7 +53,7 @@
         </member>
         <member name="T:Enyim.Caching.Configuration.EndPointElement">
             <summary>
-            Represents a configuration element that contains a Memcached node address. This class cannot be inherited. 
+            Represents a configuration element that contains a Memcached node address. This class cannot be inherited.
             </summary>
         </member>
         <member name="P:Enyim.Caching.Configuration.EndPointElement.Address">
@@ -165,6 +187,16 @@
             Gets or sets a value that specifies the amount of time after which an unresponsive (dead) server will be checked if it is working.
             </summary>
             <returns>The value of the dead timeout.</returns>
+        </member>
+        <member name="P:Enyim.Caching.Configuration.ISocketPoolConfiguration.LingerTime">
+            <summary>
+            Gets or sets the number of seconds that the socket will linger after Close is called if LingerEnabled is true
+            </summary>
+        </member>
+        <member name="P:Enyim.Caching.Configuration.ISocketPoolConfiguration.LingerEnabled">
+            <summary>
+            If true sets the LingerOptions on a socket to the value specified by the LingerTime property.
+            </summary>
         </member>
         <member name="T:Enyim.Caching.Configuration.MemcachedClientConfiguration">
             <summary>
@@ -392,7 +424,7 @@
             Implements a 64 bit long FNV1 hash.
             </summary>
             <remarks>
-            Calculation found at http://lists.danga.com/pipermail/memcached/2007-April/003846.html, but 
+            Calculation found at http://lists.danga.com/pipermail/memcached/2007-April/003846.html, but
             it is pretty much available everywhere
             </remarks>
         </member>
@@ -501,13 +533,13 @@
             <remarks>Does not support block based hashing.</remarks>
         </member>
         <member name="T:Enyim.HashkitOneAtATime">
-            <summary>
-            This is Jenkin's "One at A time Hash".
-            http://en.wikipedia.org/wiki/Jenkins_hash_function
+             <summary>
+                This is Jenkin's "One at A time Hash".
+                http://en.wikipedia.org/wiki/Jenkins_hash_function
             
-            Coming from libhashkit.
-            </summary>
-            <remarks>Does not support block based hashing.</remarks>
+                Coming from libhashkit.
+             </summary>
+             <remarks>Does not support block based hashing.</remarks>
         </member>
         <member name="T:Enyim.Caching.IMemcachedResultsClient">
             <summary>
@@ -556,29 +588,29 @@
             <remarks>Use the <see cref="T:Enyim.Caching.LogManager" /> class to programmatically assign logger implementations.</remarks>
         </member>
         <member name="T:Enyim.Caching.LogManager">
-            <summary>
-            Creates loggers based on the current configuration.
-            </summary>
-            <example>
+             <summary>
+             Creates loggers based on the current configuration.
+             </summary>
+             <example>
             
-            Config file:
+             Config file:
             
-            <configuration>
-            	<configSections>
-            		<sectionGroup name="enyim.com">
-            			<section name="log" type="Enyim.Caching.EnyimLoggerSection, Enyim.Caching" />
-            		</sectionGroup>
-            	</configSections>
-            	<enyim.com>
-            		<log factory="Enyim.Caching.Log4NetLoggerFactory, Enyim.Caching" />
-            	</enyim.com>
-            </configuration>
+             <configuration>
+                    <configSections>
+                        <sectionGroup name="enyim.com">
+                            <section name="log" type="Enyim.Caching.EnyimLoggerSection, Enyim.Caching" />
+                        </sectionGroup>
+                    </configSections>
+                    <enyim.com>
+                        <log factory="Enyim.Caching.Log4NetLoggerFactory, Enyim.Caching" />
+                    </enyim.com>
+             </configuration>
             
-            Code:
+             Code:
             
-            	LogManager.AssignFactory(new Log4NetLogFactory());
+                    LogManager.AssignFactory(new Log4NetLogFactory());
             
-            </example>
+             </example>
         </member>
         <member name="M:Enyim.Caching.LogManager.AssignFactory(Enyim.Caching.ILogFactory)">
             <summary>
@@ -622,7 +654,7 @@
         </member>
         <member name="M:Enyim.Caching.MemcachedClient.#ctor(System.String)">
             <summary>
-            Initializes a new MemcachedClient instance using the specified configuration section. 
+            Initializes a new MemcachedClient instance using the specified configuration section.
             This overload allows to create multiple MemcachedClients with different pool configurations.
             </summary>
             <param name="sectionName">The name of the configuration section to be used for configuring the behavior of the client.</param>
@@ -1383,6 +1415,45 @@
             Initializes a new instance of the <see cref="T:CommandNotSupportedException"/> class with serialized data.
             </summary>
         </member>
+        <member name="T:Enyim.Caching.Memcached.IResourcePool">
+            <summary>
+            Provides an interface for implementing pools of disposable IPooledSocket objects.
+            </summary>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Acquire">
+            <summary>
+            Acquires an object from the pool.
+            </summary>
+            <returns>A pooled object</returns>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Release(Enyim.Caching.Memcached.IPooledSocket)">
+            <summary>
+            Releases an object back into the pool.
+            </summary>
+            <param name="resource"></param>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Close(Enyim.Caching.Memcached.IPooledSocket)">
+            <summary>
+            Closes all of the underlying resources held by the pooled object.
+            </summary>
+            <param name="resource"></param>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Ping">
+            <summary>
+            Pulls a socket from the pool and checks it's connection status.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Enyim.Caching.Memcached.IResourcePool.Resurrect">
+            <summary>
+            Tries to recreate the underlying pool of objects.
+            </summary>
+        </member>
+        <member name="P:Enyim.Caching.Memcached.IResourcePool.IsAlive">
+            <summary>
+            Checks to see if the underlying resource is still "alive".
+            </summary>
+        </member>
         <member name="T:Enyim.Caching.Memcached.IServerPool">
             <summary>
             Provides custom server pool implementations
@@ -1453,9 +1524,9 @@
             Initializes the locator.
             </summary>
             <param name="nodes">The memcached nodes defined in the configuration.</param>
-            <remarks>This called first when the server pool is initialized, and subsequently every time 
-            when a node goes down or comes back. If your locator has its own logic to deal with dead nodes 
-            then ignore all calls but the first. Otherwise make sure that your implementation can handle 
+            <remarks>This called first when the server pool is initialized, and subsequently every time
+            when a node goes down or comes back. If your locator has its own logic to deal with dead nodes
+            then ignore all calls but the first. Otherwise make sure that your implementation can handle
             simultaneous calls to Initialize and Locate in a thread safe manner.</remarks>
             <seealso cref="T:DefaultNodeLocator"/>
             <seealso cref="T:KetamaNodeLocator"/>
@@ -1473,45 +1544,6 @@
             </summary>
             <remarks>It should return an instance which is safe to enumerate multiple times and provides the same results every time.</remarks>
             <returns></returns>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.IResourcePool">
-            <summary>
-            Provides an interface for implementing pools of disposable IPooledSocket objects.
-            </summary>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.IResourcePool.Acquire">
-            <summary>
-            Acquires an object from the pool.
-            </summary>
-            <returns>A pooled object</returns>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.IResourcePool.Release(Enyim.Caching.Memcached.IPooledSocket)">
-            <summary>
-            Releases an object back into the pool.
-            </summary>
-            <param name="resource"></param>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.IResourcePool.Close(Enyim.Caching.Memcached.IPooledSocket)">
-            <summary>
-            Closes all of the underlying resources held by the pooled object.
-            </summary>
-            <param name="resource"></param>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.IResourcePool.Ping">
-            <summary>
-            Pulls a socket from the pool and checks it's connection status.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.IResourcePool.Resurrect">
-            <summary>
-            Tries to recreate the underlying pool of objects.
-            </summary>
-        </member>
-        <member name="P:Enyim.Caching.Memcached.IResourcePool.IsAlive">
-            <summary>
-            Checks to see if the underlying resource is still "alive".
-            </summary>
         </member>
         <member name="T:Enyim.Caching.Memcached.Base64KeyTransformer">
             <summary>
@@ -1605,14 +1637,14 @@
             </summary>
         </member>
         <member name="T:Enyim.Caching.Memcached.VBucketNodeLocatorFactory">
-            <summary>
-            Factory for the vbucket based locator.
-            </summary>
-            <remarks>You need to use this in the configuration file because this is the only way pass parameters to the VBucketNodeLocator.
+             <summary>
+             Factory for the vbucket based locator.
+             </summary>
+             <remarks>You need to use this in the configuration file because this is the only way pass parameters to the VBucketNodeLocator.
             
-            	<locator factory="Enyim.Caching.Memcached.VBucketNodeLocatorFactory" configFile="vbucket.json" />
+                    <locator factory="Enyim.Caching.Memcached.VBucketNodeLocatorFactory" configFile="vbucket.json" />
             
-            </remarks>
+             </remarks>
         </member>
         <member name="T:Enyim.Caching.Memcached.MemcachedNode">
             <summary>
@@ -1620,12 +1652,12 @@
             </summary>
         </member>
         <member name="M:Enyim.Caching.Memcached.MemcachedNode.Ping">
-            <summary>
-            Gets a value indicating whether the server is working or not.
+             <summary>
+             Gets a value indicating whether the server is working or not.
             
-            If the server is back online, we'll ercreate the internal socket pool and mark the server as alive so operations can target it.
-            </summary>
-            <returns>true if the server is alive; false otherwise.</returns>
+             If the server is back online, we'll ercreate the internal socket pool and mark the server as alive so operations can target it.
+             </summary>
+             <returns>true if the server is alive; false otherwise.</returns>
         </member>
         <member name="M:Enyim.Caching.Memcached.MemcachedNode.Acquire">
             <summary>
@@ -1756,28 +1788,6 @@
             <summary>
             Starts the SASL auth sequence.
             </summary>
-        </member>
-        <member name="T:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions">
-            <summary>
-            Provides a means of accessing internal protected methods of the SaslStep class to
-            assemblies that are using the SaslStep class without changing the interface of that
-            class.
-            </summary>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions.GetBuffer(Enyim.Caching.Memcached.Protocol.Binary.SaslStep)">
-            <summary>
-            Gets the buffer of the current SaslStep
-            </summary>
-            <param name="step">The current Sasl step.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Enyim.Caching.Memcached.Protocol.Binary.SaslStepExtensions.ReadResponse(Enyim.Caching.Memcached.Protocol.Binary.SaslStep,Enyim.Caching.Memcached.IPooledSocket)">
-            <summary>
-            Reads the response.
-            </summary>
-            <param name="step">The current SaslStep.</param>
-            <param name="socket">The socket.to read from.</param>
-            <returns></returns>
         </member>
         <member name="M:Enyim.Caching.Memcached.Protocol.Text.TextSocketHelper.ReadResponse(Enyim.Caching.Memcached.IPooledSocket)">
             <summary>
@@ -2107,11 +2117,11 @@
             <returns>The deserialized object</returns>
         </member>
         <member name="T:Enyim.TigerHash">
-            <summary>
-            Implements the Tiger hash. (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
+             <summary>
+             Implements the Tiger hash. (http://www.cs.technion.ac.il/~biham/Reports/Tiger/)
             
-            Ported (and cleaned&amp;sped up) from the Tiger.NET VB code. (http://www.hotpixel.net/software.html)
-            </summary>
+             Ported (and cleaned&amp;sped up) from the Tiger.NET VB code. (http://www.hotpixel.net/software.html)
+             </summary>
         </member>
         <member name="M:Enyim.TigerHash.#ctor">
             <summary>

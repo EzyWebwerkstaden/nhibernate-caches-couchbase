@@ -68,13 +68,13 @@
             <param name="listener"></param>
         </member>
         <member name="M:Couchbase.BucketConfigListener.GetPooledListener">
-            <summary>
-            Returns a MessageStreamListener instance based on this instance's configuration (timeout, bucket name etc.)
+             <summary>
+             Returns a MessageStreamListener instance based on this instance's configuration (timeout, bucket name etc.)
             
-            When multiple listeners are requested with the exact same parameters (usually when multiple clients are instantiated from the same configuration),
-            the same listener will be returned each time.
-            </summary>
-            <returns></returns>
+             When multiple listeners are requested with the exact same parameters (usually when multiple clients are instantiated from the same configuration),
+             the same listener will be returned each time.
+             </summary>
+             <returns></returns>
         </member>
         <member name="P:Couchbase.BucketConfigListener.Timeout">
             <summary>
@@ -451,7 +451,7 @@
         </member>
         <member name="T:Couchbase.Configuration.UriElement">
             <summary>
-            Represents a configuration element that contains a Memcached node address. This class cannot be inherited. 
+            Represents a configuration element that contains a Memcached node address. This class cannot be inherited.
             </summary>
         </member>
         <member name="P:Couchbase.Configuration.UriElement.Uri">
@@ -508,7 +508,7 @@
         </member>
         <member name="M:Couchbase.CouchbaseClient.#ctor(System.String,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration 
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration
             section and the specified bucket.
             </summary>
             <param name="sectionName">The name of the configuration section to load.</param>
@@ -517,7 +517,7 @@
         </member>
         <member name="M:Couchbase.CouchbaseClient.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class 
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class
             using a custom configuration provider and the specified bucket name and password.
             </summary>
             <param name="configuration">The custom configuration provider.</param>
@@ -526,7 +526,7 @@
         </member>
         <member name="M:Couchbase.CouchbaseClient.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration 
+            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration
             section.
             </summary>
             <param name="sectionName">The name of the configuration section to load.</param>
@@ -993,9 +993,9 @@
             <param name="designName">The name of the design document.</param>
             <param name="viewName">The name of the view.</param>
             <param name="shouldLookupDocById">
-            	When true, the client will return an instance of T by deserializing the document that
-            	is retrieved using the row's id.  When false (use when emitting projections), the client 
-            	simply attempts to deserialize the view's value into an instance of T by matching properties.
+                   When true, the client will return an instance of T by deserializing the document that
+                   is retrieved using the row's id.  When false (use when emitting projections), the client
+                   simply attempts to deserialize the view's value into an instance of T by matching properties.
             </param>
             <returns></returns>
         </member>
@@ -1068,6 +1068,13 @@
             <summary>
             Represents the results of a Couchbase index.
             </summary>
+        </member>
+        <member name="M:Couchbase.IView`1.UrlEncode(System.Boolean)">
+            <summary>
+            View when to true, all parameters will be url-encoded prior to being sent to the server
+            </summary>
+            <param name="value">True to url-encode parameters</param>
+            <returns>A new <see cref="T:Couchbase.IView"/> instance that url-encodes parameters if set to true.</returns>
         </member>
         <member name="M:Couchbase.IView`1.Limit(System.Int32)">
             <summary>
@@ -1162,7 +1169,7 @@
         </member>
         <member name="M:Couchbase.IView`1.GroupAt(System.Int32)">
             <summary>
-            Specifies how many items of the key array are used to group the items by the reduce function.
+               Specifies how many items of the key array are used to group the items by the reduce function.
             </summary>
             <param name="level">The level of required grouping.</param>
             <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
@@ -1219,7 +1226,7 @@
         </member>
         <member name="P:Couchbase.IViewRow.ItemId">
             <summary>
-            Returns the id of the item referenced by this row. This id can be used to 
+            Returns the id of the item referenced by this row. This id can be used to
             perform the standard (Set/Get/Remove/etc.) operations on the item.
             </summary>
         </member>
@@ -1271,7 +1278,7 @@
             <summary>
             WebClientWithTimeout and its base WebClient
             do not alow for params to be set after
-            instantiation.  This wrapper will allow for 
+            instantiation.  This wrapper will allow for
             that scenario.
             </summary>
         </member>
@@ -1362,7 +1369,7 @@
         </member>
         <member name="M:Couchbase.IView.GroupAt(System.Int32)">
             <summary>
-            Specifies how many items of the key array are used to group the items by the reduce function.
+               Specifies how many items of the key array are used to group the items by the reduce function.
             </summary>
             <param name="level">The level of required grouping.</param>
             <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
